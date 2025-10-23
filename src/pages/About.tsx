@@ -1,6 +1,9 @@
 import { GraduationCap, Award, BookOpen, Heart, Building2, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import doctorPortrait from '@/assets/doctor-jaimin-patel.jpg';
+import clinicDoctorDesk from '@/assets/clinic-doctor-desk.jpg';
+import clinicPatientConsultation from '@/assets/clinic-patient-consultation.jpg';
 
 const About = () => {
   const education = [
@@ -81,11 +84,33 @@ const About = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
-              <img
-                src={doctorPortrait}
-                alt="Dr. Jaimin Patel"
-                className="rounded-2xl shadow-strong w-full max-w-md mx-auto"
-              />
+              <Carousel className="w-full max-w-md mx-auto">
+                <CarouselContent>
+                  <CarouselItem>
+                    <img
+                      src={doctorPortrait}
+                      alt="Dr. Jaimin Patel - Portrait"
+                      className="rounded-2xl shadow-strong w-full"
+                    />
+                  </CarouselItem>
+                  <CarouselItem>
+                    <img
+                      src={clinicDoctorDesk}
+                      alt="Dr. Jaimin Patel at Pulmo One Clinic"
+                      className="rounded-2xl shadow-strong w-full"
+                    />
+                  </CarouselItem>
+                  <CarouselItem>
+                    <img
+                      src={clinicPatientConsultation}
+                      alt="Dr. Jaimin Patel consulting with patients"
+                      className="rounded-2xl shadow-strong w-full"
+                    />
+                  </CarouselItem>
+                </CarouselContent>
+                <CarouselPrevious className="left-2" />
+                <CarouselNext className="right-2" />
+              </Carousel>
             </div>
             <div className="animate-fade-in-up">
               <h1 className="font-heading font-bold text-4xl lg:text-5xl text-foreground mb-6">
