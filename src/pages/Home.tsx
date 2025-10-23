@@ -6,6 +6,7 @@ import TestimonialCard from '@/components/TestimonialCard';
 import heroImage from '@/assets/hero-doctor.jpg';
 import doctorPortrait from '@/assets/doctor-jaimin-patel.jpg';
 import clinicInterior from '@/assets/clinic-interior.jpg';
+import announcementCamp from '@/assets/announcement-camp.jpg';
 
 const Home = () => {
   const services = [
@@ -59,6 +60,33 @@ const Home = () => {
     { icon: Stethoscope, number: '20+', label: 'Specializations' },
   ];
 
+  const announcements = [
+    {
+      title: 'Monsoon Allergy Clinic',
+      description: 'Special camp for seasonal allergies at City Hospital',
+      date: 'Every Saturday',
+      image: announcementCamp,
+    },
+    {
+      title: 'Free Health Checkup Camp',
+      description: 'Dr. Jaimin Patel visiting Community Center for free respiratory checkups',
+      date: 'March 15-17, 2025',
+      image: announcementCamp,
+    },
+    {
+      title: 'Asthma Awareness Program',
+      description: 'Educational session on asthma management at Medical College',
+      date: 'April 5, 2025',
+      image: announcementCamp,
+    },
+    {
+      title: 'World TB Day Camp',
+      description: 'Free TB screening and consultation at District Hospital',
+      date: 'March 24, 2025',
+      image: announcementCamp,
+    },
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -105,6 +133,40 @@ const Home = () => {
                 </div>
                 <p className="font-heading font-bold text-3xl text-foreground mb-2">{stat.number}</p>
                 <p className="text-sm text-muted-foreground">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Announcements Marquee Section */}
+      <section className="py-8 bg-primary/5 border-b border-border overflow-hidden">
+        <div className="container mx-auto px-4 lg:px-8 mb-4">
+          <h3 className="font-heading font-bold text-xl text-foreground text-center">
+            Latest Announcements & Upcoming Camps
+          </h3>
+        </div>
+        <div className="relative">
+          <div className="flex animate-marquee space-x-8">
+            {[...announcements, ...announcements].map((announcement, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-80 bg-card border border-border rounded-xl overflow-hidden shadow-medium hover:shadow-strong transition-shadow"
+              >
+                <img
+                  src={announcement.image}
+                  alt={announcement.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-4">
+                  <p className="text-xs text-primary font-semibold mb-2">{announcement.date}</p>
+                  <h4 className="font-heading font-bold text-base text-foreground mb-2">
+                    {announcement.title}
+                  </h4>
+                  <p className="text-sm text-muted-foreground line-clamp-2">
+                    {announcement.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
