@@ -33,7 +33,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  About Dr. [Name]
+                  About Dr. Jaimin Patel
                 </Link>
               </li>
               <li>

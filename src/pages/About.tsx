@@ -1,6 +1,6 @@
 import { GraduationCap, Award, BookOpen, Heart, Building2, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import doctorPortrait from '@/assets/doctor-portrait.jpg';
+import doctorPortrait from '@/assets/doctor-jaimin-patel.jpg';
 
 const About = () => {
   const education = [
@@ -83,19 +83,19 @@ const About = () => {
             <div className="animate-fade-in">
               <img
                 src={doctorPortrait}
-                alt="Dr. [Full Name]"
+                alt="Dr. Jaimin Patel"
                 className="rounded-2xl shadow-strong w-full max-w-md mx-auto"
               />
             </div>
             <div className="animate-fade-in-up">
               <h1 className="font-heading font-bold text-4xl lg:text-5xl text-foreground mb-6">
-                Meet Dr. [Full Name]
+                Meet Dr. Jaimin Patel
               </h1>
               <p className="text-xl text-primary font-semibold mb-4">
                 MD, MBBS | Board-Certified Pulmonologist & Allergy Specialist
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                With over 15 years of dedicated experience in pulmonology and allergy care, Dr. [Full Name] has established himself as a leading expert in respiratory medicine. His patient-centered approach combines cutting-edge medical knowledge with compassionate care.
+                With over 15 years of dedicated experience in pulmonology and allergy care, Dr. Jaimin Patel has established himself as a leading expert in respiratory medicine. His patient-centered approach combines cutting-edge medical knowledge with compassionate care.
               </p>
               <Card className="bg-primary/5 border-primary/20">
                 <CardContent className="p-6">
@@ -252,7 +252,7 @@ const About = () => {
                       Research & Publications
                     </h2>
                     <p className="text-muted-foreground leading-relaxed mb-6">
-                      Dr. [Full Name] has made significant contributions to the field of respiratory medicine through extensive research and publications in peer-reviewed journals. His work focuses on innovative treatment approaches for chronic respiratory conditions and advancing patient care protocols.
+                      Dr. Jaimin Patel has made significant contributions to the field of respiratory medicine through extensive research and publications in peer-reviewed journals. His work focuses on innovative treatment approaches for chronic respiratory conditions and advancing patient care protocols.
                     </p>
                   </div>
                 </div>

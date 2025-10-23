@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logo from '@/assets/logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +10,7 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About Dr. [Name]', path: '/about' },
+    { name: 'About Dr. Jaimin Patel', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Appointments', path: '/appointments' },
   ];
@@ -22,9 +23,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shadow-medium transition-transform duration-300 group-hover:scale-110">
-              <span className="text-2xl font-bold text-white">P1</span>
-            </div>
+            <img 
+              src={logo} 
+              alt="Pulmo One Logo" 
+              className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-110"
+            />
             <div className="hidden md:block">
               <h1 className="font-heading font-bold text-lg text-foreground leading-tight">
                 Pulmo One

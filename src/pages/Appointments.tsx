@@ -68,7 +68,7 @@ const Appointments = () => {
               Schedule Your Appointment
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Take the first step towards better respiratory health. Book your consultation with Dr. [Full Name] today.
+              Take the first step towards better respiratory health. Book your consultation with Dr. Jaimin Patel today.
             </p>
           </div>
         </div>

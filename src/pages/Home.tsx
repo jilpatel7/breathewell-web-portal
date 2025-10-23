@@ -4,7 +4,7 @@ import { ArrowRight, Wind, Heart, Stethoscope, Activity, Calendar, Award, Users 
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import heroImage from '@/assets/hero-doctor.jpg';
-import doctorPortrait from '@/assets/doctor-portrait.jpg';
+import doctorPortrait from '@/assets/doctor-jaimin-patel.jpg';
 import clinicInterior from '@/assets/clinic-interior.jpg';
 
 const Home = () => {
@@ -35,7 +35,7 @@ const Home = () => {
     {
       name: 'Sarah Johnson',
       condition: 'Asthma Patient',
-      text: "Dr. [Name] completely changed my life. After years of struggling with asthma, I can finally breathe freely and enjoy activities I love.",
+      text: "Dr. Jaimin Patel completely changed my life. After years of struggling with asthma, I can finally breathe freely and enjoy activities I love.",
       rating: 5,
     },
     {
@@ -47,7 +47,7 @@ const Home = () => {
     {
       name: 'Emily Rodriguez',
       condition: 'COPD Management',
-      text: 'The care and attention I receive here is exceptional. Dr. [Name] takes time to explain everything and truly cares about my wellbeing.',
+      text: 'The care and attention I receive here is exceptional. Dr. Jaimin Patel takes time to explain everything and truly cares about my wellbeing.',
       rating: 5,
     },
   ];
@@ -66,7 +66,7 @@ const Home = () => {
         <div className="absolute inset-0">
           <img
             src={heroImage}
-            alt="Dr. [Name] consulting with patient"
+            alt="Dr. Jaimin Patel consulting with patient"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-hero" />
@@ -78,7 +78,7 @@ const Home = () => {
               Breathe Easy with Expert Lung & Allergy Care
             </h1>
             <p className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed">
-              Pulmo One Lung Care & Allergy Center – Comprehensive Respiratory Solutions by Dr. [Full Name], Board-Certified Pulmonologist
+              Pulmo One Lung Care & Allergy Center – Comprehensive Respiratory Solutions by Dr. Jaimin Patel, Board-Certified Pulmonologist
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-strong">
@@ -86,7 +86,7 @@ const Home = () => {
                 Book Appointment
               </Button>
               <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary">
-                Know More About Dr. [Name]
+                Know More About Dr. Jaimin Patel
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </div>
@@ -118,16 +118,16 @@ const Home = () => {
             <div className="animate-fade-in">
               <img
                 src={doctorPortrait}
-                alt="Dr. [Full Name]"
+                alt="Dr. Jaimin Patel"
                 className="rounded-2xl shadow-strong w-full"
               />
             </div>
             <div className="animate-fade-in-up">
               <h2 className="font-heading font-bold text-3xl lg:text-4xl text-foreground mb-6">
-                Meet Dr. [Full Name]
+                Meet Dr. Jaimin Patel
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Board-certified pulmonologist with over 15 years of experience in respiratory medicine and allergy care. Dr. [Name] is dedicated to providing compassionate, evidence-based care to help patients breathe better and live fuller lives.
+                Board-certified pulmonologist with over 15 years of experience in respiratory medicine and allergy care. Dr. Jaimin Patel is dedicated to providing compassionate, evidence-based care to help patients breathe better and live fuller lives.
               </p>
               <div className="space-y-3 mb-8">
                 <div className="flex items-start space-x-3">
