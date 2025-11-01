@@ -1,14 +1,26 @@
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Wind, Heart, Stethoscope, Activity, Calendar, Award, Users } from 'lucide-react';
-import ServiceCard from '@/components/ServiceCard';
-import TestimonialCard from '@/components/TestimonialCard';
-import heroImage from '@/assets/hero-doctor.jpg';
-import doctorPortrait from '@/assets/doctor-jaimin-patel.jpg';
-import clinicInterior from '@/assets/clinic-interior.jpg';
-import announcementCamp from '@/assets/announcement-camp.jpg';
-import { useCountUp } from '@/hooks/use-count-up';
-import { useEffect, useRef, useState } from 'react';
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+  Wind,
+  Heart,
+  Stethoscope,
+  Activity,
+  Calendar,
+  Award,
+  Users,
+} from "lucide-react";
+import ServiceCard from "@/components/ServiceCard";
+import TestimonialCard from "@/components/TestimonialCard";
+import heroImage from "@/assets/hero-doctor.jpg";
+import doctorPortrait from "@/assets/doctor-jaimin-patel.jpg";
+import clinicInterior from "@/assets/clinic-interior.png";
+import announcement1 from "@/assets/announcement1.png";
+import announcement2 from "@/assets/announcement2.png";
+import announcement3 from "@/assets/announcement3.png";
+import announcement4 from "@/assets/announcement4.png";
+import { useCountUp } from "@/hooks/use-count-up";
+import { useEffect, useRef, useState } from "react";
 
 const Home = () => {
   const statsRef = useRef<HTMLDivElement>(null);
@@ -43,83 +55,137 @@ const Home = () => {
 
   const services = [
     {
-      id: 'asthma-management',
+      id: "asthma-management",
       icon: Wind,
-      title: 'Asthma Management',
-      description: 'Comprehensive care and treatment plans to help you manage asthma and breathe easier every day.',
+      title: "Asthma Management",
+      description:
+        "Comprehensive care and treatment plans to help you manage asthma and breathe easier every day.",
     },
     {
-      id: 'allergy-testing',
+      id: "allergy-testing",
       icon: Heart,
-      title: 'Allergy Testing',
-      description: 'Advanced diagnostic testing to identify allergens and develop personalized treatment strategies.',
+      title: "Allergy Testing",
+      description:
+        "Advanced diagnostic testing to identify allergens and develop personalized treatment strategies.",
     },
     {
-      id: 'copd-care',
+      id: "copd-care",
       icon: Activity,
-      title: 'COPD Treatment',
-      description: 'Expert management of chronic obstructive pulmonary disease with cutting-edge therapies.',
+      title: "COPD Treatment",
+      description:
+        "Expert management of chronic obstructive pulmonary disease with cutting-edge therapies.",
     },
     {
-      id: 'sleep-disorders',
+      id: "sleep-disorders",
       icon: Stethoscope,
-      title: 'Sleep Disorders',
-      description: 'Specialized evaluation and treatment for sleep apnea and other respiratory sleep conditions.',
+      title: "Sleep Disorders",
+      description:
+        "Specialized evaluation and treatment for sleep apnea and other respiratory sleep conditions.",
+    },
+    {
+      id: "asthma-management",
+      icon: Wind,
+      title: "Asthma Management",
+      description:
+        "Comprehensive care and treatment plans to help you manage asthma and breathe easier every day.",
+    },
+    {
+      id: "allergy-testing",
+      icon: Heart,
+      title: "Allergy Testing",
+      description:
+        "Advanced diagnostic testing to identify allergens and develop personalized treatment strategies.",
+    },
+    {
+      id: "copd-care",
+      icon: Activity,
+      title: "COPD Treatment",
+      description:
+        "Expert management of chronic obstructive pulmonary disease with cutting-edge therapies.",
+    },
+    {
+      id: "sleep-disorders",
+      icon: Stethoscope,
+      title: "Sleep Disorders",
+      description:
+        "Specialized evaluation and treatment for sleep apnea and other respiratory sleep conditions.",
     },
   ];
 
   const testimonials = [
     {
-      name: 'Sarah Johnson',
-      condition: 'Asthma Patient',
+      name: "Sarah Johnson",
+      condition: "Asthma Patient",
       text: "Dr. Jaimin Patel completely changed my life. After years of struggling with asthma, I can finally breathe freely and enjoy activities I love.",
       rating: 5,
     },
     {
-      name: 'Michael Chen',
-      condition: 'Allergy Treatment',
-      text: 'The thorough allergy testing and personalized treatment plan have made such a difference. I highly recommend Pulmo One!',
+      name: "Michael Chen",
+      condition: "Allergy Treatment",
+      text: "The thorough allergy testing and personalized treatment plan have made such a difference. I highly recommend Pulmo One!",
       rating: 5,
     },
     {
-      name: 'Emily Rodriguez',
-      condition: 'COPD Management',
-      text: 'The care and attention I receive here is exceptional. Dr. Jaimin Patel takes time to explain everything and truly cares about my wellbeing.',
+      name: "Emily Rodriguez",
+      condition: "COPD Management",
+      text: "The care and attention I receive here is exceptional. Dr. Jaimin Patel takes time to explain everything and truly cares about my wellbeing.",
       rating: 5,
     },
   ];
 
   const stats = [
-    { icon: Users, count: patientsCount.count, suffix: '+', label: 'Patients Treated' },
-    { icon: Award, count: yearsCount.count, suffix: '+', label: 'Years Experience' },
-    { icon: Heart, count: successCount.count, suffix: '%', label: 'Success Rate' },
-    { icon: Stethoscope, count: specializationsCount.count, suffix: '+', label: 'Specializations' },
+    {
+      icon: Users,
+      count: patientsCount.count,
+      suffix: "+",
+      label: "Patients Treated",
+    },
+    {
+      icon: Award,
+      count: yearsCount.count,
+      suffix: "+",
+      label: "Years Experience",
+    },
+    {
+      icon: Heart,
+      count: successCount.count,
+      suffix: "%",
+      label: "Success Rate",
+    },
+    {
+      icon: Stethoscope,
+      count: specializationsCount.count,
+      suffix: "+",
+      label: "Specializations",
+    },
   ];
 
   const announcements = [
     {
-      title: 'Monsoon Allergy Clinic',
-      description: 'Special camp for seasonal allergies at City Hospital',
-      date: 'Every Saturday',
-      image: announcementCamp,
+      title: "Monsoon Allergy Clinic",
+      description: "Special camp for seasonal allergies at City Hospital",
+      date: "Every Saturday",
+      image: announcement1,
     },
     {
-      title: 'Free Health Checkup Camp',
-      description: 'Dr. Jaimin Patel visiting Community Center for free respiratory checkups',
-      date: 'March 15-17, 2025',
-      image: announcementCamp,
+      title: "Free Health Checkup Camp",
+      description:
+        "Dr. Jaimin Patel visiting Community Center for free respiratory checkups",
+      date: "March 15-17, 2025",
+      image: announcement2,
     },
     {
-      title: 'Asthma Awareness Program',
-      description: 'Educational session on asthma management at Medical College',
-      date: 'April 5, 2025',
-      image: announcementCamp,
+      title: "Asthma Awareness Program",
+      description:
+        "Educational session on asthma management at Medical College",
+      date: "April 5, 2025",
+      image: announcement3,
     },
     {
-      title: 'World TB Day Camp',
-      description: 'Free TB screening and consultation at District Hospital',
-      date: 'March 24, 2025',
-      image: announcementCamp,
+      title: "World TB Day Camp",
+      description: "Free TB screening and consultation at District Hospital",
+      date: "March 24, 2025",
+      image: announcement4,
     },
   ];
 
@@ -135,22 +201,45 @@ const Home = () => {
           />
           <div className="absolute inset-0 bg-gradient-hero" />
         </div>
-        
+
         <div className="relative container mx-auto px-4 lg:px-8 h-full flex items-center">
           <div className="max-w-2xl text-white animate-fade-in">
+            <div className="mb-6 text-center lg:text-left">
+              <p className="font-serif text-xl md:text-2xl italic bg-gradient-to-r from-cyan-300 via-blue-300 to-blue-100 bg-clip-text text-transparent drop-shadow-sm animate-fade-in-slow">
+                यावद्वायुः स्थितो देहे तावञ्जीवनमुख्यते ।
+              </p>
+              <p className="text-sm md:text-base text-white/90 mt-2">
+                <span className="text-cyan-200">
+                  “So long the air remains in the body,
+                </span>
+                <span className="text-blue-100"> there stays life.”</span>
+              </p>
+              <div className="w-16 h-[2px] bg-gradient-to-r from-cyan-300 to-blue-200 mt-4 mx-auto lg:mx-0" />
+            </div>
+
             <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
               Breathe Easy with Expert Lung & Allergy Care
             </h1>
+
             <p className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed">
-              Pulmo One Lung Care & Allergy Center – Comprehensive Respiratory Solutions by Dr. Jaimin Patel, Board-Certified Pulmonologist
+              Pulmo One Lung Care & Allergy Center – Comprehensive Respiratory
+              Solutions by Dr. Jaimin Patel, Board-Certified Pulmonologist
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-strong">
+              <Button
+                size="lg"
+                className="bg-white text-primary hover:bg-white/90 shadow-strong"
+              >
                 <Calendar className="w-5 h-5 mr-2" />
                 Book Appointment
               </Button>
               <Link to="/about">
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary transition-all duration-300 shadow-glow hover:shadow-strong hover:scale-105">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary transition-all duration-300 shadow-glow hover:shadow-strong hover:scale-105"
+                >
                   Know More About Dr. Jaimin Patel
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
@@ -165,12 +254,17 @@ const Home = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+              <div
+                key={index}
+                className="text-center animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-primary flex items-center justify-center shadow-medium">
                   <stat.icon className="w-8 h-8 text-white" />
                 </div>
                 <p className="font-heading font-bold text-3xl text-foreground mb-2">
-                  {stat.count.toLocaleString()}{stat.suffix}
+                  {stat.count.toLocaleString()}
+                  {stat.suffix}
                 </p>
                 <p className="text-sm text-muted-foreground">{stat.label}</p>
               </div>
@@ -199,7 +293,9 @@ const Home = () => {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-4">
-                  <p className="text-xs text-primary font-semibold mb-2">{announcement.date}</p>
+                  <p className="text-xs text-primary font-semibold mb-2">
+                    {announcement.date}
+                  </p>
                   <h4 className="font-heading font-bold text-base text-foreground mb-2">
                     {announcement.title}
                   </h4>
@@ -221,7 +317,7 @@ const Home = () => {
               <img
                 src={doctorPortrait}
                 alt="Dr. Jaimin Patel"
-                className="rounded-2xl shadow-strong w-full"
+                className="rounded-2xl shadow-strong w-3/4 sm:w-2/3 md:w-1/2 lg:w-full max-w-lg mx-auto"
               />
             </div>
             <div className="animate-fade-in-up">
@@ -229,26 +325,35 @@ const Home = () => {
                 Meet Dr. Jaimin Patel
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Board-certified pulmonologist with over 15 years of experience in respiratory medicine and allergy care. Dr. Jaimin Patel is dedicated to providing compassionate, evidence-based care to help patients breathe better and live fuller lives.
+                Board-certified pulmonologist with over 15 years of experience
+                in respiratory medicine and allergy care. Dr. Jaimin Patel is
+                dedicated to providing compassionate, evidence-based care to
+                help patients breathe better and live fuller lives.
               </p>
               <div className="space-y-3 mb-8">
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <div className="w-2 h-2 rounded-full bg-primary" />
                   </div>
-                  <p className="text-sm text-foreground">MBBS, MD (Pulmonary Medicine)</p>
+                  <p className="text-sm text-foreground">
+                    MBBS, MD (Pulmonary Medicine)
+                  </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <div className="w-2 h-2 rounded-full bg-primary" />
                   </div>
-                  <p className="text-sm text-foreground">Fellow, American College of Chest Physicians</p>
+                  <p className="text-sm text-foreground">
+                    Fellow, American College of Chest Physicians
+                  </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <div className="w-2 h-2 rounded-full bg-primary" />
                   </div>
-                  <p className="text-sm text-foreground">Founder, Pulmo One Lung Care & Allergy Center</p>
+                  <p className="text-sm text-foreground">
+                    Founder, Pulmo One Lung Care & Allergy Center
+                  </p>
                 </div>
               </div>
               <Link to="/about">
@@ -270,7 +375,8 @@ const Home = () => {
               Comprehensive Respiratory Care
             </h2>
             <p className="text-muted-foreground text-lg">
-              Expert treatment for a wide range of lung and allergy conditions with personalized care plans
+              Expert treatment for a wide range of lung and allergy conditions
+              with personalized care plans
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in-up">
@@ -298,15 +404,17 @@ const Home = () => {
                 State-of-the-Art Facility
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Our modern clinic is equipped with the latest diagnostic and treatment technology to provide you with the best possible care in a comfortable, welcoming environment.
+                Our modern clinic is equipped with the latest diagnostic and
+                treatment technology to provide you with the best possible care
+                in a comfortable, welcoming environment.
               </p>
               <ul className="space-y-4 mb-8">
                 {[
-                  'Advanced Pulmonary Function Testing',
-                  'Comprehensive Allergy Testing Lab',
-                  'Sleep Study Facilities',
-                  'Nebulization Treatment Rooms',
-                  'Digital Imaging & Diagnostics'
+                  "Advanced Pulmonary Function Testing",
+                  "Comprehensive Allergy Testing Lab",
+                  "Sleep Study Facilities",
+                  "Nebulization Treatment Rooms",
+                  "Digital Imaging & Diagnostics",
                 ].map((item, index) => (
                   <li key={index} className="flex items-center space-x-3">
                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -365,17 +473,25 @@ const Home = () => {
               Ready to Breathe Better?
             </h2>
             <p className="text-lg mb-8 text-white/90">
-              Schedule your consultation today and take the first step towards improved respiratory health
+              Schedule your consultation today and take the first step towards
+              improved respiratory health
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/appointments">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90">
+                <Button
+                  size="lg"
+                  className="bg-white text-primary hover:bg-white/90"
+                >
                   <Calendar className="w-5 h-5 mr-2" />
                   Book Appointment
                 </Button>
               </Link>
               <a href="tel:+15551234567">
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary"
+                >
                   Call: +1 (555) 123-4567
                 </Button>
               </a>
