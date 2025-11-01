@@ -64,8 +64,10 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-muted-foreground">
-                  123 Medical Plaza, Suite 400<br />
-                  City, State 12345
+                  B-407, Fourth Floor,<br />
+                  Vrundavan Trade Centre (VTC),<br />
+                  Near Reliance Cross Road Circle,<br />
+                  Kudasan, Gandhinagar, Gujarat, India - 382421
                 </span>
               </li>
             </ul>
