@@ -1,9 +1,11 @@
-import { GraduationCap, Award, BookOpen, Heart, Building2, Users } from 'lucide-react';
+import { GraduationCap, Award, BookOpen, Heart, Building2, Users, ChevronRight, MapPin, Clock } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { useState } from 'react';
 import doctorPortrait from '@/assets/doctor-jaimin-patel.jpg';
 import clinicDoctorDesk from '@/assets/clinic-doctor-desk.jpg';
 import clinicPatientConsultation from '@/assets/clinic-patient-consultation.jpg';
+import clinicInterior from '@/assets/clinic-interior.jpg';
 
 const About = () => {
   const education = [
@@ -56,11 +58,45 @@ const About = () => {
   ];
 
   const affiliations = [
-    'Leading General Hospital - Senior Consultant',
-    'City Medical Center - Visiting Pulmonologist',
-    'Advanced Healthcare Institute - Consultant',
-    'Metropolitan Hospital - Respiratory Specialist',
+    {
+      id: 1,
+      name: 'Leading General Hospital',
+      role: 'Senior Consultant',
+      address: 'Sector 21, Gandhinagar, Gujarat 382021',
+      schedule: 'Monday, Wednesday, Friday',
+      timing: '10:00 AM - 2:00 PM',
+      image: clinicInterior,
+    },
+    {
+      id: 2,
+      name: 'City Medical Center',
+      role: 'Visiting Pulmonologist',
+      address: 'Satellite Road, Ahmedabad, Gujarat 380015',
+      schedule: 'Tuesday, Thursday',
+      timing: '3:00 PM - 6:00 PM',
+      image: clinicDoctorDesk,
+    },
+    {
+      id: 3,
+      name: 'Advanced Healthcare Institute',
+      role: 'Consultant',
+      address: 'CG Road, Ahmedabad, Gujarat 380009',
+      schedule: 'Saturday',
+      timing: '9:00 AM - 1:00 PM',
+      image: clinicPatientConsultation,
+    },
+    {
+      id: 4,
+      name: 'Metropolitan Hospital',
+      role: 'Respiratory Specialist',
+      address: 'Kudasan, Gandhinagar, Gujarat 382421',
+      schedule: 'Monday to Saturday',
+      timing: '5:00 PM - 8:00 PM',
+      image: doctorPortrait,
+    },
   ];
+
+  const [selectedHospital, setSelectedHospital] = useState(affiliations[0]);
 
   const achievements = [
     {
@@ -375,17 +411,93 @@ const About = () => {
               Serving at leading healthcare institutions
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto animate-fade-in-up">
-            {affiliations.map((affiliation, index) => (
-              <Card key={index} className="border-border hover:shadow-medium transition-shadow">
-                <CardContent className="p-6 flex items-center space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Building2 className="w-6 h-6 text-primary" />
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-3 gap-6">
+              {/* Hospital List - Left Side */}
+              <div className="lg:col-span-1 space-y-3">
+                {affiliations.map((hospital) => (
+                  <Card 
+                    key={hospital.id}
+                    className={`border-border cursor-pointer transition-all group hover:shadow-medium ${
+                      selectedHospital.id === hospital.id 
+                        ? 'ring-2 ring-primary/30 bg-primary/5' 
+                        : 'hover:border-primary/30'
+                    }`}
+                    onClick={() => setSelectedHospital(hospital)}
+                  >
+                    <CardContent className="p-4 flex items-center justify-between">
+                      <div className="flex items-center space-x-3 flex-1">
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
+                          selectedHospital.id === hospital.id 
+                            ? 'bg-gradient-primary' 
+                            : 'bg-primary/10'
+                        }`}>
+                          <Building2 className={`w-5 h-5 ${
+                            selectedHospital.id === hospital.id 
+                              ? 'text-white' 
+                              : 'text-primary'
+                          }`} />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm text-foreground font-semibold truncate">
+                            {hospital.name}
+                          </p>
+                          <p className="text-xs text-muted-foreground truncate">
+                            {hospital.role}
+                          </p>
+                        </div>
+                      </div>
+                      <ChevronRight className={`w-5 h-5 flex-shrink-0 transition-all ${
+                        selectedHospital.id === hospital.id 
+                          ? 'text-primary translate-x-1' 
+                          : 'text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-1'
+                      }`} />
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              {/* Hospital Details - Right Side */}
+              <div className="lg:col-span-2">
+                <Card className="border-border shadow-strong overflow-hidden h-full">
+                  <div className="relative h-64 overflow-hidden">
+                    <img
+                      src={selectedHospital.image}
+                      alt={selectedHospital.name}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
+                    <div className="absolute bottom-4 left-6 right-6">
+                      <h3 className="font-heading font-bold text-2xl text-foreground mb-1">
+                        {selectedHospital.name}
+                      </h3>
+                      <p className="text-primary font-semibold">{selectedHospital.role}</p>
+                    </div>
                   </div>
-                  <p className="text-sm text-foreground font-medium">{affiliation}</p>
-                </CardContent>
-              </Card>
-            ))}
+                  <CardContent className="p-6 space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <MapPin className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground font-medium mb-1">Address</p>
+                        <p className="text-sm text-foreground">{selectedHospital.address}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <Clock className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground font-medium mb-1">Visiting Schedule</p>
+                        <p className="text-sm text-foreground font-semibold">{selectedHospital.schedule}</p>
+                        <p className="text-sm text-primary font-medium mt-1">{selectedHospital.timing}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
