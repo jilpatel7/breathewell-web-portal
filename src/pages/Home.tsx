@@ -7,8 +7,40 @@ import heroImage from '@/assets/hero-doctor.jpg';
 import doctorPortrait from '@/assets/doctor-jaimin-patel.jpg';
 import clinicInterior from '@/assets/clinic-interior.jpg';
 import announcementCamp from '@/assets/announcement-camp.jpg';
+import { useCountUp } from '@/hooks/use-count-up';
+import { useEffect, useRef, useState } from 'react';
 
 const Home = () => {
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [statsVisible, setStatsVisible] = useState(false);
+
+  // Stats counters
+  const patientsCount = useCountUp(10000, 2500, 0);
+  const yearsCount = useCountUp(15, 2000, 0);
+  const successCount = useCountUp(98, 2000, 0);
+  const specializationsCount = useCountUp(20, 2000, 0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !statsVisible) {
+          setStatsVisible(true);
+          patientsCount.startCounting();
+          yearsCount.startCounting();
+          successCount.startCounting();
+          specializationsCount.startCounting();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [statsVisible]);
+
   const services = [
     {
       icon: Wind,
@@ -54,10 +86,10 @@ const Home = () => {
   ];
 
   const stats = [
-    { icon: Users, number: '10,000+', label: 'Patients Treated' },
-    { icon: Award, number: '15+', label: 'Years Experience' },
-    { icon: Heart, number: '98%', label: 'Success Rate' },
-    { icon: Stethoscope, number: '20+', label: 'Specializations' },
+    { icon: Users, count: patientsCount.count, suffix: '+', label: 'Patients Treated' },
+    { icon: Award, count: yearsCount.count, suffix: '+', label: 'Years Experience' },
+    { icon: Heart, count: successCount.count, suffix: '%', label: 'Success Rate' },
+    { icon: Stethoscope, count: specializationsCount.count, suffix: '+', label: 'Specializations' },
   ];
 
   const announcements = [
@@ -113,17 +145,19 @@ const Home = () => {
                 <Calendar className="w-5 h-5 mr-2" />
                 Book Appointment
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary">
-                Know More About Dr. Jaimin Patel
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+              <Link to="/about">
+                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary transition-all duration-300 shadow-glow hover:shadow-strong hover:scale-105">
+                  Know More About Dr. Jaimin Patel
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-card border-y border-border">
+      <section ref={statsRef} className="py-12 bg-card border-y border-border">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -131,7 +165,9 @@ const Home = () => {
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-primary flex items-center justify-center shadow-medium">
                   <stat.icon className="w-8 h-8 text-white" />
                 </div>
-                <p className="font-heading font-bold text-3xl text-foreground mb-2">{stat.number}</p>
+                <p className="font-heading font-bold text-3xl text-foreground mb-2">
+                  {stat.count.toLocaleString()}{stat.suffix}
+                </p>
                 <p className="text-sm text-muted-foreground">{stat.label}</p>
               </div>
             ))}
@@ -276,10 +312,12 @@ const Home = () => {
                   </li>
                 ))}
               </ul>
-              <Button size="lg" variant="outline">
-                Schedule a Tour
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+              <Link to="/about">
+                <Button size="lg" variant="outline">
+                  See All Affiliate Hospitals
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </Link>
             </div>
             <div className="animate-fade-in-up">
               <img
@@ -332,9 +370,11 @@ const Home = () => {
                   Book Appointment
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary">
-                Call: +1 (555) 123-4567
-              </Button>
+              <a href="tel:+15551234567">
+                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary">
+                  Call: +1 (555) 123-4567
+                </Button>
+              </a>
             </div>
           </div>
         </div>
