@@ -21,6 +21,10 @@ import announcement3 from "@/assets/announcement3.png";
 import announcement4 from "@/assets/announcement4.png";
 import { useCountUp } from "@/hooks/use-count-up";
 import { useEffect, useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const Home = () => {
   const statsRef = useRef<HTMLDivElement>(null);
@@ -379,11 +383,45 @@ const Home = () => {
               with personalized care plans
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in-up">
+
+          {/* Mobile Carousel */}
+          <div className="md:hidden animate-fade-in-up">
+            <Swiper
+              effect="coverflow"
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView="auto"
+              loop={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              coverflowEffect={{
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                scale: 0.9,
+                slideShadows: false,
+              }}
+              modules={[Autoplay, EffectCoverflow]}
+              className="mySwiper"
+            >
+              {services.map((service, index) => (
+                <SwiperSlide key={index} className="!w-72">
+                  <ServiceCard {...service} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in-up">
             {services.map((service, index) => (
               <ServiceCard key={index} {...service} />
             ))}
           </div>
+
           <div className="text-center mt-12">
             <Link to="/services">
               <Button size="lg">
@@ -453,11 +491,42 @@ const Home = () => {
               Real stories from patients who have experienced life-changing care
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 animate-fade-in-up">
+          {/* Mobile Carousel */}
+          <div className="md:hidden animate-fade-in-up">
+            <Swiper
+              effect="coverflow"
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView="auto"
+              loop={true}
+              autoplay={{
+                delay: 3500,
+                disableOnInteraction: false,
+              }}
+              coverflowEffect={{
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                scale: 0.9,
+                slideShadows: false,
+              }}
+              modules={[Autoplay, EffectCoverflow]}
+              className="mySwiper"
+            >
+              {testimonials.map((testimonial, index) => (
+                <SwiperSlide key={index} className="!w-80">
+                  <TestimonialCard {...testimonial} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-3 gap-6 animate-fade-in-up">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard key={index} {...testimonial} />
             ))}
-          </div>
+          </div>{" "}
         </div>
       </section>
 
