@@ -43,21 +43,25 @@ const Home = () => {
 
   const services = [
     {
+      id: 'asthma-management',
       icon: Wind,
       title: 'Asthma Management',
       description: 'Comprehensive care and treatment plans to help you manage asthma and breathe easier every day.',
     },
     {
+      id: 'allergy-testing',
       icon: Heart,
       title: 'Allergy Testing',
       description: 'Advanced diagnostic testing to identify allergens and develop personalized treatment strategies.',
     },
     {
+      id: 'copd-care',
       icon: Activity,
       title: 'COPD Treatment',
       description: 'Expert management of chronic obstructive pulmonary disease with cutting-edge therapies.',
     },
     {
+      id: 'sleep-disorders',
       icon: Stethoscope,
       title: 'Sleep Disorders',
       description: 'Specialized evaluation and treatment for sleep apnea and other respiratory sleep conditions.',

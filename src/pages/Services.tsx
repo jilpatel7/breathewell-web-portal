@@ -7,51 +7,61 @@ import { Calendar } from 'lucide-react';
 const Services = () => {
   const services = [
     {
+      id: 'asthma-management',
       icon: Wind,
       title: 'Asthma Management',
       description: 'Comprehensive evaluation and personalized treatment plans for asthma control. Advanced therapies including inhaler techniques, medication optimization, and lifestyle modifications.',
     },
     {
+      id: 'allergy-testing',
       icon: Heart,
       title: 'Allergy Testing & Treatment',
       description: 'State-of-the-art allergy testing to identify triggers. Customized immunotherapy and treatment plans to manage seasonal and year-round allergies effectively.',
     },
     {
+      id: 'copd-care',
       icon: Activity,
       title: 'COPD Care',
       description: 'Expert management of Chronic Obstructive Pulmonary Disease with advanced therapies, pulmonary rehabilitation guidance, and ongoing monitoring.',
     },
     {
+      id: 'sleep-disorders',
       icon: Stethoscope,
       title: 'Sleep Disorders',
       description: 'Comprehensive sleep studies and treatment for sleep apnea, snoring, and other respiratory-related sleep conditions using modern diagnostic tools.',
     },
     {
+      id: 'pulmonary-function',
       icon: TestTube,
       title: 'Pulmonary Function Tests',
       description: 'Advanced diagnostic testing including spirometry, lung volume measurements, and diffusion capacity tests for accurate respiratory assessment.',
     },
     {
+      id: 'bronchitis-treatment',
       icon: Thermometer,
       title: 'Bronchitis Treatment',
       description: 'Effective treatment for acute and chronic bronchitis with personalized medication plans and respiratory therapy recommendations.',
     },
     {
+      id: 'interstitial-lung',
       icon: Microscope,
       title: 'Interstitial Lung Disease',
       description: 'Specialized care for various interstitial lung diseases including diagnosis, monitoring, and treatment of lung tissue disorders.',
     },
     {
+      id: 'smoking-cessation',
       icon: Moon,
       title: 'Smoking Cessation',
       description: 'Comprehensive smoking cessation programs with counseling, medication management, and ongoing support to help you quit successfully.',
     },
     {
+      id: 'immunization',
       icon: Syringe,
       title: 'Immunization Services',
       description: 'Preventive care including flu shots, pneumonia vaccines, and other respiratory-related immunizations for optimal lung health protection.',
     },
     {
+      id: 'occupational-lung',
       icon: Shield,
       title: 'Occupational Lung Disease',
       description: 'Expert evaluation and management of work-related respiratory conditions with personalized treatment and workplace accommodation guidance.',
